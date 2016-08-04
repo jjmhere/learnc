@@ -1,7 +1,4 @@
 #include "stdio.h"
-void printplus(void);
-void ravio(int ra);
-void expt(int ex);
 int main()
 {
 	int a[101] = {0};
@@ -44,6 +41,11 @@ int main()
 		t = t2;
 	}
 	t2 = t;
+	for(;a[t] == 0 && t >=0; t--)
+	{
+	}
+	if(t < 0)
+	t = 0;
 	switch(t)
 	{
 		case 0:
@@ -69,9 +71,22 @@ int main()
 					}
 					
 				}
+				else if(a[1] == -1)
+				{
+					printf("-x");
+					if(a[0] > 0)
+					{
+						printf("+%d",a[0]);
+					}
+					if(a[0] < 0)
+					{
+						printf("%d",a[0]);
+					}
+					
+				}
 				else
 				{
-					printf("%dx",a[1])
+					printf("%dx",a[1]);
 					if(a[0] > 0)
 					{
 						printf("+%d",a[0]);
@@ -85,45 +100,76 @@ int main()
 			};break;
 		default:
 			{
-				while(a[t] == 0)
-				{
-					if(t == 0)
-					break;
-					t--;
-				}
+				//ax2+bx+c
 				if(a[t] == 1)
 				printf("x%d",t);
-				else
+				else if(a[t] == -1)
+				printf("-x%d",t);
+				else 
 				printf("%dx%d",a[t],t);
-				t--
+				t--;
 				while(t > 0)
 				{
-					
+					if(a[t] > 1)
+					{
+						printf("+%d",a[t]);
+						if(t == 1)
+						{
+							printf("x");
+						}
+						if(t > 1)
+						{
+							printf("x%d",t);
+						}
+					}
+					if(a[t] < -1)
+					{
+						printf("%d",a[t]);
+						if(t == 1)
+						{
+							printf("x");
+						}
+						if(t > 1)
+						{
+							printf("x%d",t);
+						}
+					}
+					if(a[t] == 1)
+					{
+						if(t == 1)
+						{
+							printf("+x");
+						}
+						if(t > 1)
+						{
+							printf("+x%d",t);
+						}
+					}
+					if(a[t] == -1)
+					{
+						if(t == 1)
+						{
+							printf("-x");
+						}
+						if(t > 1)
+						{
+							printf("-x%d",t);
+						}
+					}
+					t--;
+				}
+				
+				if(a[0] > 0)
+				{
+					printf("+%d",a[0]);
+				}
+				if(a[0] < 0)
+				{
+					printf("%d",a[0]);
 				}
 			};break;
 	}
 
 	return 0;
 }
-void ravio(int ra)
-{
-	if(ra > 0)
-	{
-		printf("+%d",ra);
-	}
-	if(ra < 0)
-	{
-		printf("%d",ra);
-	}
-}
-void expt(int ex)
-{
-	if(ex == 1)
-	{
-		printf("x");
-	}
-	if(ex > 1)
-	{
-		printf("x%d",ex);
-	}
-}
+
