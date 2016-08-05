@@ -39,39 +39,32 @@
 
 int main()
 {
-	int a,b;
-	int rat,rem;
-	int t,times;
-	int cnt=200;
+	int a,b; 		//a表示除数 b表示被除数 
+	int rat,rem;	//rat表示商 rem表示余数 
+	int cnt=200;	//cnt用于200位小数输出计数 
 	scanf("%d/%d",&a,&b);	
 	rat = a /b;
 	rem = a % b;
-	times = rat;
 	printf("%d",rat);
 	//如果不能被整除，继续 
-	if(times * b != a)
+	if(rat * b != a)
 	{
-		times *= 10;
+		
 		printf(".");
 		while(cnt)
 		{			
-			rem *= 10;
-			rat = rem / b;
-			rem %= b;
-			times +=rat;
-			printf("%d",rat);
-			a *= 10;
-			if(a == (times * b))
+			rem *=10;			//余数扩大10倍 
+			rat = rem / b;		//得出此时的商 
+			printf("%d",rat); 
+			rem %= b;			//得出此时的余数 
+			//余数为0，则表示除尽，退出循环 
+			if(rem == 0)
 			{
 				break;
-			}
-			else
-			{
-				times *= 10;
 			}
 			cnt--; 
 		}
 	}
-//	printf("\n"); 
+	printf("\n"); 
 	return 0;
 }
