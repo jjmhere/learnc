@@ -43,28 +43,35 @@ int main()
 	int rat,rem;
 	int t,times;
 	int cnt=200;
-	scanf("%d/%d",&a,&b);
-	printf("%d.",0);
-	t =10 * a;
-	times = 0;
-	while(cnt)
+	scanf("%d/%d",&a,&b);	
+	rat = a /b;
+	rem = a % b;
+	times = rat;
+	printf("%d",rat);
+	//如果不能被整除，继续 
+	if(times * b != a)
 	{
-		rem = t % b;
-		rat = t / b;
-		printf("%d",rat);
-		rem *=10;
-		t = rem;
-		cnt--;
-		a *=10;
-		times += rat;
-		if(a == (times * b))
-		{
-			break;
-		}
-		else
-		{
-			times *=10;
+		times *= 10;
+		printf(".");
+		while(cnt)
+		{			
+			rem *= 10;
+			rat = rem / b;
+			rem %= b;
+			times +=rat;
+			printf("%d",rat);
+			a *= 10;
+			if(a == (times * b))
+			{
+				break;
+			}
+			else
+			{
+				times *= 10;
+			}
+			cnt--; 
 		}
 	}
+//	printf("\n"); 
 	return 0;
 }
