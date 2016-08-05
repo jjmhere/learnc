@@ -5,7 +5,7 @@ int main()
 	int t1,t2,t;	//用于判断下标 
 	int num1,num2;	//用于输入数据 
 	t1 = t2 = 0;
-	t = 1;
+	t = 1; //用t取得第一个输入的指数 
 	//输入第一个多项式 
 	do
 	{
@@ -73,39 +73,25 @@ int main()
 				if(a[1] == 1)
 				{
 					printf("x");
-					if(a[0] > 0)
+					if(a[0] != 0)
 					{
-						printf("+%d",a[0]);
-					}
-					if(a[0] < 0)
-					{
-						printf("%d",a[0]);
+						printf("%+d",a[0]);
 					}
 					
 				}
 				else if(a[1] == -1)
 				{
 					printf("-x");
-					if(a[0] > 0)
+					if(a[0] != 0)
 					{
-						printf("+%d",a[0]);
+						printf("%+d",a[0]);
 					}
-					if(a[0] < 0)
-					{
-						printf("%d",a[0]);
-					}
-					
 				}
 				else
 				{
-					printf("%dx",a[1]);
-					if(a[0] > 0)
+					if(a[0] != 0)
 					{
-						printf("+%d",a[0]);
-					}
-					if(a[0] < 0)
-					{
-						printf("%d",a[0]);
+						printf("%dx%+d",a[1],a[0]);
 					}
 				}
 				
@@ -175,13 +161,9 @@ int main()
 					t--;
 				}
 				
-				if(a[0] > 0)
+				if(a[0] != 0)
 				{
-					printf("+%d",a[0]);
-				}
-				if(a[0] < 0)
-				{
-					printf("%d",a[0]);
+					printf("%+d",a[0]);
 				}
 			};break;
 	}
