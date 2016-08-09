@@ -2,7 +2,7 @@
 #include <string.h>
 int main(void)
 {
-	char a[][12] ={"0","January","February","March","April","May","June",
+	char a[][11] ={"January","February","March","April","May","June",
 			"July","August","September","October","November","December"};
 	char *b[] ={"0","January","February","March","April","May","June",
 			"July","August","September","October","November","December"};
@@ -10,7 +10,8 @@ int main(void)
 	
 	printf("请输入月份：");
 	scanf("%d",&i);
-	while(i > 0 && i < 13)
+	i--;
+	while(i < 12)
 	{
 		printf("您要的是%s\n",a[i]);
 		printf("\n a[%d]的地址是:%p\n",i,&a[i]);
