@@ -25,6 +25,7 @@ int main(void)
 		i--;
 		
 		
+		
 	}
 	printf("sizeof(a[i]) = %d,sizeof(b[i]) = %d\n",sizeof(a),sizeof(b));
 	return 0;
